@@ -1,0 +1,10 @@
+<div>
+  <h3>Login Page</h3>
+  <label for="username">Username:</label>
+  <input type="text" id="username" [(ngModel)]="name" />
+
+  <label for="password">Password:</label>
+  <input type="password" id="password" [(ngModel)]="pass" />
+  <label *ngIf="wrong.length > 0 && flg == false">{{wrong}}</label>
+  <button (click)="login()">Login</button>
+</div>
