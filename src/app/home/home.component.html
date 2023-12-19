@@ -1,1 +1,25 @@
-<p>home works!</p>
+<!-- home.component.html -->
+
+<table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Message Type</th>
+        <th>Status</th>
+        <th>Created On</th>
+        <th>Updated On</th>
+        <th>Message</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let account of accounts">
+        <td>{{ account.id }}</td>
+        <td>{{ account.messageType }}</td>
+        <td>{{ account.status }}</td>
+        <td>{{ account.createdOn }}</td>
+        <td>{{ account.updatedOn }}</td>
+        <td>{{ account.message }}</td>
+      </tr>
+    </tbody>
+  </table>
+  
