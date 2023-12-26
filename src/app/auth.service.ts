@@ -1,10 +1,10 @@
 // auth.service.ts
-
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
+import { HttpParams } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -18,28 +18,42 @@ export class AuthService {
     // Check for authentication status on application load
     this.checkAuthentication();
   }
-
+  
   private checkAuthentication(): void {
     // Check if the user was previously authenticated
     this.isLoggedInValue = !!localStorage.getItem('authToken');
   }
 
-  login(username: string, password: string): Observable<boolean> {
-    // const url = `${this.baseUrl}/users?username=${username}&password=${password}`;
-    const url = `${this.baseUrl}/persons/all?id=${username}&password=${password}`;
-    return this.http.get<any[]>(url).pipe(
-      map(users => {
-        const isValid = users.length > 0;
-        if (isValid) {
-          // Save authentication token to localStorage
-          console.log("before navigate");
-          localStorage.setItem('authToken', 'yourAuthTokenHere');
-          this.router.navigate(['/home', username]);
-          // Update isLoggedInValue based on authentication result
-          this.isLoggedInValue = true;
-        }
-        return isValid;
-      })
+  // login(username: string, password: string): Observable<boolean> {
+  //   // const url = `${this.baseUrl}/users?username=${username}&password=${password}`;
+  //   const url = `${this.baseUrl}/persons/all?id=${username}&password=${password}`;
+  //   return this.http.get<any[]>(url).pipe(
+  //     map(users => {
+  //       const isValid = users.length > 0;
+  //       if (isValid) {
+  //         localStorage.setItem('authToken', 'yourAuthTokenHere');
+  //         this.router.navigate(['/home', username]);
+  //         // Update isLoggedInValue based on authentication result
+  //         this.isLoggedInValue = true;
+  //       }
+  //       return isValid;
+  //     })
+  //   );
+  // }
+  login(username: string, password: string): Observable<any> {
+    const url = `http://localhost:8082/persons/checkAuth`;
+    const body = { id: username, password: password };
+    console.log("namaste rocket");
+    return this.http.post(url, body).pipe(
+        map(response => {
+            const isValid = response; // Adjust based on your server's response structure
+            if (isValid) {
+                // localStorage.setItem('authToken', 'yourAuthTokenHere');
+                this.router.navigate(['/home', username]);
+                this.isLoggedInValue = true;
+            }
+            return isValid;
+        })
     );
   }
 
@@ -58,8 +72,4 @@ export class AuthService {
     this.router.navigate(['/login']);
   }
 
-  // Placeholder for additional logic when needed
-  get(): number {
-    return 1;
-  }
 }
