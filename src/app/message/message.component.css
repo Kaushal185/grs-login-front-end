@@ -1,8 +1,66 @@
 .message-container {
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    overflow: auto;
+  display: flex;
+  background-color: #e4e2f3;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin: 20px;
+}
+
+.box {
+  flex: 1;
+  border: 1px solid #ddd; /* Optional: Add border for visual separation */
+  padding: 10px; /* Optional: Add padding for better readability */
+  max-height: 400px; /* Set a fixed height */
+  overflow-y: auto; /* Add scroll bar when content overflows */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 45%;
+}
+/* Add this CSS in your styles or styleUrls */
+
+
+h2 {
+  color: #333;
+}
+
+p {
+  margin: 10px 0;
+  line-height: 1.6;
+  color: #555;
+}
+.highlighted {
+  background-color: yellow; /* Set the desired highlight color */
+}
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .message-container {
+    flex-direction: column;
   }
-  
+
+  .box {
+    width: 100%;
+  }
+}
+/* Add this CSS in your styles or styleUrls */
+/* Add this CSS in your styles or styleUrls */
+
+.message-details {
+  height: 200px; /* Set a fixed height as per your requirement */
+  overflow: hidden; /* Hide overflow content */
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-family: 'YourFontName', sans-serif;
+  margin-top: 20px; /* Adjust the margin as needed */
+}
+
+.message-details p {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+p strong {
+  font-weight: bold;
+}
+

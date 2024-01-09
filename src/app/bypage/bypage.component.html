@@ -2,7 +2,7 @@
   <div>
     <app-navbar></app-navbar>
   </div>
-  <input matInput (input)="applyFilter($event)" placeholder="search here  " style="padding: 2px; margin: 5px 0px;">
+
   <div class="example-container">
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
       <ng-container matColumnDef="id">
@@ -33,7 +33,7 @@
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
-    <mat-paginator [pageSizeOptions]="[15, 30, 45, 60]" [pageSize]="15" showFirst></mat-paginator>
+    <mat-paginator [pageSizeOptions]="[15, 30, 45, 60]" [pageSize]="15" showFirst (page)="loadData($event)"></mat-paginator>
   </div>
 
 </div>

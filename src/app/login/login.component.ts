@@ -9,7 +9,6 @@ import { AuthService } from '../auth.service';
 export class LoginComponent {
   username = '';
   password = '';
-
   constructor(private authService: AuthService, private router: Router) {}
 
   login(): void {
@@ -18,7 +17,7 @@ export class LoginComponent {
         if (response && response.success) {
           // Authentication successful, navigate to the desired page
           this.router.navigate(['/home',this.username]);
-        } else {
+        }else {
           console.error('Authentication failed:', response.message);
           // Handle authentication failure (show error message, etc.)
         }

@@ -14,6 +14,9 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { MessageComponent } from './message/message.component';
+import { NavbarComponent } from './navbar/navbar.component';
+import { PageComponent } from './page/page.component';
+import { BypageComponent } from './bypage/bypage.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +25,10 @@ import { MessageComponent } from './message/message.component';
     HomeComponent,
     NotFoundComponent,
     MessageComponent,
+    NavbarComponent,
+    PageComponent,
+    BypageComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -34,7 +41,7 @@ import { MessageComponent } from './message/message.component';
     MatSortModule,
     MatTableModule,
     MatFormFieldModule
-    
+
   ],
   providers: [
     AuthService

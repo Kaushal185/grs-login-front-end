@@ -1,4 +1,38 @@
+<app-navbar [childInput]="globId" [user]="user"></app-navbar>
 <div class="message-container">
-    <p>{{ jsonMessage }}</p>
+
+  <div class="box" *ngIf="jsonMessage.length > 0 && jsonMessage[0].length > 0">
+    <h2 style="font-family: 'YourFontName', sans-serif;">Original Message:</h2><br><br>
+    <div class="message-details">
+      <p><strong>ID:</strong> {{ accounts[0].id }}</p>
+      <p><strong>Message Type:</strong> {{ accounts[0].messageType }}</p>
+      <p><strong>Status:</strong> {{ accounts[0].status }}</p>
+      <p><strong>Created On:</strong> {{ accounts[0].createdOn }}</p>
+      <p><strong>Updated On:</strong> {{ accounts[0].updatedOn }}</p>
+    </div>
+    <p *ngFor="let message of jsonMessage.slice(0, jsonMessage.length / 2)" style="font-family: 'YourFontName', sans-serif;">{{ message }}</p>
+  </div>
+
+  <div class="box" *ngIf="jsonMessage.length > 0 && jsonMessage[0].length > 0">
+    <h2 style="font-family: 'YourFontName', sans-serif;">Translated Message:</h2><br><br>
+  <div class="message-details">
+    <p><strong>ID:</strong> {{ accounts[1].id }}</p>
+    <p><strong>Message Type:</strong> {{ accounts[1].messageType }}</p>
+    <p><strong>Status:</strong> {{ accounts[1].status }}</p>
+    <p><strong>Created On:</strong> {{ accounts[1].createdOn }}</p>
+    <p><strong>Updated On:</strong> {{ accounts[1].updatedOn }}</p>
+  </div>
+    <p *ngFor="let message of jsonMessage.slice(jsonMessage.length / 2)" style="font-family: 'YourFontName', sans-serif;">
+      <p>
+        <ng-container *ngFor="let char of jsonMessage; let i = index">
+          <span [ngClass]="{'highlighted': i >= startIndex && i <= endIndex}">{{ char }}</span>
+        </ng-container>
+      </p>
+
+
+  </div>
+  <div class="box" *ngIf="jsonMessage.length === 0 || jsonMessage[0].length === 0">
+    <h2 style="font-family: 'YourFontName', sans-serif;">No data found</h2>
+  </div>
 </div>
-  
+
