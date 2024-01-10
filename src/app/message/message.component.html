@@ -10,29 +10,43 @@
       <p><strong>Created On:</strong> {{ accounts[0].createdOn }}</p>
       <p><strong>Updated On:</strong> {{ accounts[0].updatedOn }}</p>
     </div>
-    <p *ngFor="let message of jsonMessage.slice(0, jsonMessage.length / 2)" style="font-family: 'YourFontName', sans-serif;">{{ message }}</p>
+    <p *ngFor="let message of jsonMessage.slice(0, jsonMessage.length / 2)"
+      style="font-family: 'YourFontName', sans-serif;">{{ message }}</p>
   </div>
 
   <div class="box" *ngIf="jsonMessage.length > 0 && jsonMessage[0].length > 0">
     <h2 style="font-family: 'YourFontName', sans-serif;">Translated Message:</h2><br><br>
-  <div class="message-details">
-    <p><strong>ID:</strong> {{ accounts[1].id }}</p>
-    <p><strong>Message Type:</strong> {{ accounts[1].messageType }}</p>
-    <p><strong>Status:</strong> {{ accounts[1].status }}</p>
-    <p><strong>Created On:</strong> {{ accounts[1].createdOn }}</p>
-    <p><strong>Updated On:</strong> {{ accounts[1].updatedOn }}</p>
-  </div>
-    <p *ngFor="let message of jsonMessage.slice(jsonMessage.length / 2)" style="font-family: 'YourFontName', sans-serif;">
-      <p>
-        <ng-container *ngFor="let char of jsonMessage; let i = index">
-          <span [ngClass]="{'highlighted': i >= startIndex && i <= endIndex}">{{ char }}</span>
+    <div class="message-details">
+      <p><strong>ID:</strong> {{ accounts[1].id }}</p>
+      <p><strong>Message Type:</strong> {{ accounts[1].messageType }}</p>
+      <p><strong>Status:</strong> {{ accounts[1].status }}</p>
+      <p><strong>Created On:</strong> {{ accounts[1].createdOn }}</p>
+      <p><strong>Updated On:</strong> {{ accounts[1].updatedOn }}</p>
+    </div>
+    <div>
+
+
+      <div *ngIf="accounts.length == 3; else elseBlock">
+        <ng-container *ngFor="let message of jsonMessage.slice(jsonMessage.length/2)">
+          <div>
+            <p>
+              <span *ngFor="let ind of arr; let i = index">
+                <span [ngClass]="{'highlighted': i%2 !== 0}">
+                  {{message.slice(arr[i],arr[i+1])}}
+                </span>
+              </span>
+            </p>
+          </div>
         </ng-container>
-      </p>
+      </div>
+      <ng-template #elseBlock>
+        <p>{{jsonMessage[1]}}</p>
+      </ng-template>
 
-
+    </div>
   </div>
+
   <div class="box" *ngIf="jsonMessage.length === 0 || jsonMessage[0].length === 0">
     <h2 style="font-family: 'YourFontName', sans-serif;">No data found</h2>
   </div>
 </div>
-

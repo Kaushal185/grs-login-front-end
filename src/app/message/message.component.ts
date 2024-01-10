@@ -11,8 +11,7 @@ export class MessageComponent implements OnInit {
   jsonMessage:any = [];
   globId = '';
   user = '';
-  startIndex:number = 0;
-  endIndex:number = 0;
+  arr:number[] = [];
   constructor(private fieldsService:FieldsService,private route: ActivatedRoute){}
   ngOnInit(): void {
     // Get the ID from the URL parameter
@@ -37,16 +36,24 @@ export class MessageComponent implements OnInit {
         this.jsonMessage[0] = data[0].message;
         this.jsonMessage[1] = data[1].message;
         console.log(this.accounts.length);
-        if(this.accounts.length == 3){
+        if (this.accounts.length === 3) {
           console.log(this.accounts[2]);
           let x = this.accounts[2].message;
           let substrings: string[] = x.split('$');
-          let final: string = this.accounts[1].message.substring(substrings[0],substrings[1]);
+          let final: string = this.accounts[1].message.substring(
+            parseInt(substrings[0]),
+            parseInt(substrings[1])
+          );
           console.log(final);
-          this.startIndex = parseInt(substrings[0]);
-          this.endIndex = parseInt(substrings[1]);
+          this.arr.push(0);
+          for (let i = 0; i < substrings.length; i++) {
+                this.arr.push(parseInt(substrings[i]));
+                console.log(parseInt(substrings[i]));
+          }
+          let a = this.arr.slice().sort((a, b) => a - b);
         }
 
+        console.log(this.jsonMessage[1]);
       },
       (error) => {
         console.error(`Error fetching account for ID ${id}:`, error);

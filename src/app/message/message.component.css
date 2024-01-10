@@ -63,4 +63,12 @@ p {
 p strong {
   font-weight: bold;
 }
+p {
+  font-family: 'YourFontName', sans-serif;
+}
+
+span.highlighted {
+  background-color: yellow;
+}
+
 
