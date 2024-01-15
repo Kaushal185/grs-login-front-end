@@ -16,20 +16,13 @@ constructor(private fieldsService:FieldsService, private router:Router, private 
   dataSource: MatTableDataSource<any> = new MatTableDataSource<any>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
+  pageIndex = 0;
+  pageSize = 20;
   accounts: any = [];
+  arr:any = [];
   ngOnInit(): void {
     console.log("ngOnInit");
     this.loadData();
-    // this.fieldsService.fetchAccountsByPage(0,10).subscribe(
-    //   (data: any[]) => {
-    //     this.accounts = data;
-    //     this.dataSource.data = this.accounts.content;
-    //     console.log(this.dataSource);
-    //   },
-    //   (error) => {
-    //     console.error('Error fetching data:', error);
-    //   }
-    // );
     this.route.parent?.params.subscribe((params) => {
       // Retrieve the 'username' parameter from the parent route
       const username = params['username'];
@@ -39,18 +32,29 @@ constructor(private fieldsService:FieldsService, private router:Router, private 
     });
   }
   loadData(pageEvent?: any): void {
-    const pageIndex = pageEvent ? pageEvent.pageIndex : 16;
-    const pageSize = pageEvent ? pageEvent.pageSize : 30;
-
-    this.fieldsService.fetchAccountsByPage(pageIndex, pageSize).subscribe(
+    this.fieldsService.fetchAccountsByPage(this.pageIndex, this.pageSize).subscribe(
       (data: any[]) => {
         this.accounts = data;
+        console.log(this.accounts.content);
+
+        for(let i=0;i<data.length;i++){
+          // this.arr.push(this.accounts.content[i]);
+        }
         this.dataSource.data = this.accounts.content;
+        // console.log(this.arr);
       },
       (error) => {
         console.error('Error fetching data:', error);
       }
     );
+  }
+  next():void{
+    this.pageIndex += 1;
+    this.loadData();
+  }
+  prev():void{
+    this.pageIndex -= 1;
+    this.loadData();
   }
   ngAfterViewInit(): void {
     console.log("ngAfterView");
@@ -58,12 +62,6 @@ constructor(private fieldsService:FieldsService, private router:Router, private 
     this.dataSource.sort = this.sort;
   }
 
-  // applyFilter(filterValue: string): void {
-  //   this.dataSource.filter = filterValue.trim().toLowerCase();
-  //   if (this.dataSource.paginator) {
-  //     this.dataSource.paginator.firstPage();
-  //   }
-  // }
   redirect(id: string) {
     this.router.navigate(['home',id,'message']);
   }

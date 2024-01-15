@@ -2,7 +2,9 @@
   <div>
     <app-navbar></app-navbar>
   </div>
-  <input matInput (input)="applyFilter($event)" placeholder="search here  " style="padding: 2px; margin: 5px 0px;">
+  <div class="search-container">
+    <input matInput (input)="applyFilter($event)" placeholder="search here">
+  </div>
   <div class="example-container">
     <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
       <ng-container matColumnDef="id">
@@ -35,5 +37,4 @@
     </table>
     <mat-paginator [pageSizeOptions]="[15, 30, 45, 60]" [pageSize]="15" showFirst></mat-paginator>
   </div>
-
 </div>

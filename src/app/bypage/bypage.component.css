@@ -47,4 +47,38 @@ td.mat-cell:hover {
   background-color: #f0f0f0; /* Change the background color on hover */
   cursor: pointer;
 }
+/* Base styles for both buttons */
+button {
+  /* Apply desired default styling: */
+  background-color: #4CAF50; /* Green */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px; /* Rounded corners */
+  cursor: pointer;
+
+  /* Ensure consistent spacing and alignment: */
+  margin-right: 10px;
+  display: inline-block;
+  text-align: center;
+}
+
+/* Hover effect to enhance interactivity: */
+button:hover {
+  background-color: #3e8e41; /* Darker green */
+}
+
+/* Optional focused state for accessibility: */
+button:focus {
+  outline: 2px solid #2196F3; /* Blue outline */
+}
+
+/* Position buttons below the table */
+.example-container div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
 

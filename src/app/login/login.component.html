@@ -18,7 +18,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #e4e1f9;
+    background-color: #fff;
 }
 .background{
     width: 430px;
@@ -36,8 +36,9 @@ body{
 }
 .shape:first-child{
     background: linear-gradient(
-        #056218,
-        #23a2f6
+        #b8316b,
+        #010113
+
     );
     left: -80px;
     top: -80px;
@@ -45,14 +46,15 @@ body{
 .shape:last-child{
     background: linear-gradient(
         to right,
-        #010612,
-        #1304e8
+        #6860db,
+        #010612
+
     );
     right: -30px;
-    bottom: -80px;
+    bottom: -100px;
 }
 form{
-    height: 520px;
+    height: 450px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -81,6 +83,7 @@ form h3{
 
 label{
     display: block;
+    color: white;
     margin-top: 30px;
     font-size: 16px;
     font-weight: 500;
@@ -103,7 +106,7 @@ input{
 button{
     margin-top: 50px;
     width: 100%;
-    background-color: #09a92f;
+    background-color: #f9fcf9;
     color: #080710;
     padding: 15px 0;
     font-size: 18px;
@@ -133,10 +136,24 @@ button{
 .social i{
   margin-right: 4px;
 }
+.login-header {
+  background-color: #383a3a;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+}
 
+.login-header h1 {
+  margin: 0;
+ }
 </style>
 </head>
 <body>
+  <div>
+    <header class="login-header">
+      <h1><strong>Fab</strong>misr</h1>
+    </header>
+  </div>
   <div class="background">
       <div class="shape"></div>
       <div class="shape"></div>

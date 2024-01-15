@@ -1,10 +1,9 @@
 .example-container {
   display: flex;
   flex-direction: column;
-  margin: 20px;
+  margin: 20px auto; /* Center the box horizontally */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   width: 90%; /* Adjust the width based on your preference */
-  margin: auto; /* Center the box horizontally */
 }
 
 .mat-table {
@@ -18,7 +17,8 @@
   margin-top: 20px;
 }
 
-th.mat-header-cell, td.mat-cell {
+th.mat-header-cell,
+td.mat-cell {
   padding: 10px;
   text-align: left;
 }
@@ -31,15 +31,10 @@ td.mat-cell:hover {
   background-color: #e0e0e0;
   cursor: pointer;
 }
-.example-container {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Adjust the values based on your preference */
-}
 
 .mat-elevation-z8 {
   /* If mat-elevation-z8 is not providing enough shadow, you can adjust it here */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-
 }
 
 /* Add this to your component's style file or global stylesheet */
@@ -47,4 +42,35 @@ td.mat-cell:hover {
   background-color: #f0f0f0; /* Change the background color on hover */
   cursor: pointer;
 }
+/* Add this to your component's style file or global stylesheet */
 
+/* Style for the container div */
+div.search-container {
+  display: flex;
+  align-items: center;
+}
+
+/* Style for the search input */
+input.matInput {
+  padding: 8px; /* Adjust the padding based on your preference */
+  margin: 5px 0; /* Adjust the margin based on your preference */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* Placeholder style for the search input */
+input.matInput::placeholder {
+  color: #999; /* Adjust the placeholder text color based on your preference */
+}
+
+/* Hover effect for the search input */
+input.matInput:hover,
+input.matInput:focus {
+  border-color: #007bff; /* Change the border color on hover or focus */
+  outline: none; /* Remove the default outline on focus */
+}
+
+/* Add any additional styling you need for the search input or container */

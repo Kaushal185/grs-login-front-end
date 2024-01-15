@@ -17,6 +17,7 @@ import { MessageComponent } from './message/message.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { PageComponent } from './page/page.component';
 import { BypageComponent } from './bypage/bypage.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { BypageComponent } from './bypage/bypage.component';
     NavbarComponent,
     PageComponent,
     BypageComponent,
+    AboutComponent,
 
   ],
   imports: [

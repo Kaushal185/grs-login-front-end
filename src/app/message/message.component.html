@@ -25,7 +25,6 @@
     </div>
     <div>
 
-
       <div *ngIf="accounts.length == 3; else elseBlock">
         <ng-container *ngFor="let message of jsonMessage.slice(jsonMessage.length/2)">
           <div>
@@ -42,7 +41,6 @@
       <ng-template #elseBlock>
         <p>{{jsonMessage[1]}}</p>
       </ng-template>
-
     </div>
   </div>
 

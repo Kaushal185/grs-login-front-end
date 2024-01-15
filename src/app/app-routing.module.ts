@@ -6,6 +6,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { MessageComponent } from './message/message.component';
 import { PageComponent } from './page/page.component';
 import { BypageComponent } from './bypage/bypage.component';
+import { AboutComponent } from './about/about.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
   {
@@ -17,6 +18,7 @@ const routes: Routes = [
     component: MessageComponent, // Replace 'MessageComponent' with your actual component
   },
   {path:'bypage',component:BypageComponent},
+  {path:'about',component:AboutComponent},
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: '**', component: NotFoundComponent }, // Wildcard route for "Page Not Found"
 ];

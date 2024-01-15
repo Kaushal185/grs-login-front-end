@@ -1,3 +1,11 @@
+/* Global Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif; /* Use a fallback font if 'YourFontName' is not available */
+}
+
+/* Container Styles */
 .message-container {
   display: flex;
   background-color: #e4e2f3;
@@ -6,32 +14,38 @@
   margin: 20px;
 }
 
+/* Box Styles */
 .box {
   flex: 1;
-  border: 1px solid #ddd; /* Optional: Add border for visual separation */
-  padding: 10px; /* Optional: Add padding for better readability */
-  max-height: 400px; /* Set a fixed height */
-  overflow-y: auto; /* Add scroll bar when content overflows */
   border: 1px solid #ccc;
   border-radius: 8px;
   width: 45%;
+  margin: 10px;
+  padding: 10px;
+  max-height: 400px;
+  overflow-y: auto;
 }
-/* Add this CSS in your styles or styleUrls */
 
-
+/* Heading Styles */
 h2 {
   color: #333;
+  font-family: 'YourFontName', sans-serif;
 }
 
+/* Paragraph Styles */
 p {
   margin: 10px 0;
   line-height: 1.6;
   color: #555;
+  font-family: 'YourFontName', sans-serif;
 }
-.highlighted {
-  background-color: yellow; /* Set the desired highlight color */
+
+/* Highlighted Text Styles */
+span.highlighted {
+  background-color: yellow;
 }
-/* Media query for responsiveness */
+
+/* Media Query for Responsiveness */
 @media (max-width: 768px) {
   .message-container {
     flex-direction: column;
@@ -41,18 +55,17 @@ p {
     width: 100%;
   }
 }
-/* Add this CSS in your styles or styleUrls */
-/* Add this CSS in your styles or styleUrls */
 
+/* Message Details Styles */
 .message-details {
-  height: 200px; /* Set a fixed height as per your requirement */
-  overflow: hidden; /* Hide overflow content */
+  height: 200px;
+  overflow: hidden;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   background-color: #f9f9f9;
   font-family: 'YourFontName', sans-serif;
-  margin-top: 20px; /* Adjust the margin as needed */
+  margin-top: 20px;
 }
 
 .message-details p {
@@ -63,12 +76,3 @@ p {
 p strong {
   font-weight: bold;
 }
-p {
-  font-family: 'YourFontName', sans-serif;
-}
-
-span.highlighted {
-  background-color: yellow;
-}
-
-

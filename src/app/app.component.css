@@ -1,0 +1,25 @@
+footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Optional: Style for links in the footer */
+footer a {
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Optional: Style for links in the footer on hover */
+footer a:hover {
+  text-decoration: underline;
+}
+/* Add this CSS to your styles.css or your component's style file */
+
+
+
+
